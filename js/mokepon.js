@@ -1,5 +1,5 @@
 let ataqueJugador
-
+let ataqueEnemigo
 
 function iniciarJuego(){
     let botonMascota = document.getElementById("boton-mascota")
@@ -17,19 +17,29 @@ function iniciarJuego(){
 
 function ataqueFuego(){
     ataqueJugador = "FUEGO"
-    alert(ataqueJugador)
+    seleccionarAtaqueEnemigo()
 }
 
 
 function ataqueAgua(){
     ataqueJugador = "AGUA"
-    alert(ataqueJugador)
+    seleccionarAtaqueEnemigo()
 }
 
 
 function ataqueTierra(){
     ataqueJugador = "TIERRA"
-    alert(ataqueJugador)
+    seleccionarAtaqueEnemigo()
+}
+
+
+function seleccionarAtaqueEnemigo(){
+    let ataques = new Map();
+    ataques.set(1, "FUEGO")
+    ataques.set(2, "AGUA")
+    ataques.set(3, "TIERRA")
+    ataqueEnemigo = ataques.get(numeroAleatorio(1,3))
+    
 }
 
 
