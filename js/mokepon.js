@@ -1,7 +1,37 @@
+let ataqueJugador
+
+
 function iniciarJuego(){
     let botonMascota = document.getElementById("boton-mascota")
     botonMascota.addEventListener("click", seleccionarMascotaJugador)
+    let botonFuego = document.getElementById("boton-fuego")
+    let botonAgua = document.getElementById("boton-agua")
+    let botonTierra = document.getElementById("boton-tierra")
+    
+    botonFuego.addEventListener("click", ataqueFuego)
+    botonAgua.addEventListener("click", ataqueAgua)
+    botonTierra.addEventListener("click", ataqueTierra)
+
 }
+
+
+function ataqueFuego(){
+    ataqueJugador = "FUEGO"
+    alert(ataqueJugador)
+}
+
+
+function ataqueAgua(){
+    ataqueJugador = "AGUA"
+    alert(ataqueJugador)
+}
+
+
+function ataqueTierra(){
+    ataqueJugador = "TIERRA"
+    alert(ataqueJugador)
+}
+
 
 function seleccionarMascotaJugador(){
     let inputHipodoge = document.getElementById("hipodoge")
@@ -27,6 +57,7 @@ function seleccionarMascotaJugador(){
     
 }
 
+
 function seleccionarMascotaEnemigo(){
     let mascotaEnemigo = document.getElementById("mascota-enemigo")
     let enemigos = new Map();
@@ -38,9 +69,9 @@ function seleccionarMascotaEnemigo(){
 
 }
 
+
 function numeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 
 window.addEventListener("load", iniciarJuego)
