@@ -1,6 +1,8 @@
 let ataqueJugador
 let ataqueEnemigo
 let resultado
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 
 function iniciarJuego(){
@@ -9,7 +11,6 @@ function iniciarJuego(){
     let botonFuego = document.getElementById("boton-fuego")
     let botonAgua = document.getElementById("boton-agua")
     let botonTierra = document.getElementById("boton-tierra")
-    
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
     botonTierra.addEventListener("click", ataqueTierra)
@@ -46,17 +47,25 @@ function crearMensaje(){
 
 
 function combate(){
+    let spanVidasJugador = document.getElementById("vidas-jugador")
+    let spanVidasEnemigo = document.getElementById("vidas-enemigo")
     if (ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO"){
-        resultado == "GANASTE"
+        resultado = "GANASTE"
+        vidasEnemigo--
     } else if (ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA"){
         resultado = "GANASTE"
+        vidasEnemigo--
     } else if (ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA"){
-        resultado == "GANASTE"
+        resultado = "GANASTE"
+        vidasEnemigo--
     } else if (ataqueJugador == ataqueEnemigo){
         resultado = "EMPATE"
     } else {
-        resultado ="PERDISTE"
+        resultado = "PERDISTE"
+        vidasJugador--
     }
+    spanVidasJugador.innerHTML = vidasJugador
+    spanVidasEnemigo.innerHTML = vidasEnemigo
 }
 
 function seleccionarAtaqueEnemigo(){
