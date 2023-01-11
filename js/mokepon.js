@@ -7,14 +7,15 @@ let vidasEnemigo = 3
 
 function iniciarJuego(){
     let botonMascota = document.getElementById("boton-mascota")
-    botonMascota.addEventListener("click", seleccionarMascotaJugador)
     let botonFuego = document.getElementById("boton-fuego")
     let botonAgua = document.getElementById("boton-agua")
     let botonTierra = document.getElementById("boton-tierra")
+    let botonReiniciar = document.getElementById("boton-reiniciar")
+    botonMascota.addEventListener("click", seleccionarMascotaJugador)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
     botonTierra.addEventListener("click", ataqueTierra)
-
+    botonReiniciar.addEventListener("click", reiniciarJuego)
 }
 
 
@@ -36,7 +37,7 @@ function ataqueTierra(){
 }
 
 
-function crearMensaje(){
+function crearMensajeCombate(){
     let mensajes = document.getElementById("mensajes")
 
     let parrafo =  document.createElement("p")
@@ -45,6 +46,14 @@ function crearMensaje(){
     mensajes.appendChild(parrafo)
 }
 
+function crearMensajeFinal(){
+    let mensajes = document.getElementById("mensajes")
+
+    let parrafo =  document.createElement("p")
+    parrafo.innerHTML = ` ${vidasJugador == 0 ? "Losiento, has perdido:(" : "Felicidades has ganado"}`
+
+    mensajes.appendChild(parrafo)
+}
 
 function combate(){
     let spanVidasJugador = document.getElementById("vidas-jugador")
@@ -66,6 +75,7 @@ function combate(){
     }
     spanVidasJugador.innerHTML = vidasJugador
     spanVidasEnemigo.innerHTML = vidasEnemigo
+    
 }
 
 function seleccionarAtaqueEnemigo(){
@@ -75,9 +85,24 @@ function seleccionarAtaqueEnemigo(){
     ataques.set(3, "TIERRA")
     ataqueEnemigo = ataques.get(numeroAleatorio(1,3))
     combate()
-    crearMensaje()
+    crearMensajeCombate()
+    if (vidasJugador == 0) {
+        crearMensajeFinal()
+        deshabilitarAtaques()
+    } else if (vidasEnemigo == 0) {
+        crearMensajeFinal()
+        deshabilitarAtaques()
+    }
 }
 
+function deshabilitarAtaques(){
+    let botonFuego = document.getElementById("boton-fuego")
+    let botonAgua = document.getElementById("boton-agua")
+    let botonTierra = document.getElementById("boton-tierra")
+    botonFuego.disabled = true
+    botonAgua.disabled = true
+    botonTierra.disabled = true
+}
 
 function seleccionarMascotaJugador(){
     let inputHipodoge = document.getElementById("hipodoge")
@@ -115,6 +140,10 @@ function seleccionarMascotaEnemigo(){
 }
 
 
+function reiniciarJuego(){
+    location.reload()
+    
+}
 function numeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
