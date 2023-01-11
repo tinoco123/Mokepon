@@ -151,12 +151,6 @@ function deshabilitarAtaques(){
 }
 
 
-function habilitarReiniciar(){
-    let seccionReiniciar = document.getElementById("reiniciar")
-    seccionReiniciar.style.display = "block"
-}
-
-
 function reiniciarJuego(){
     location.reload()
     
