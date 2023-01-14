@@ -1,14 +1,10 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&family=Varela+Round&display=swap');
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.titulo {
-    color: hotpink;
-    width: 310px;
-    height: 50px;
-    background-color: teal;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #13005A;
 }
 
 #seleccionar-mascota{
@@ -17,15 +13,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+}
+
+.titulo {
+    color: white;
+    font-family: 'Titan One', cursive;
+    font-size: 32px;
+}
+
+.subtitulo{
+    color: white;
+    font-size: 20px;
+}
+
+.tarjetas {
+    display: flex;
+    gap: 20px;
 }
 
 .tarjeta-mokepon {
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
     height: 100px;
-    background-color: aquamarine;
+    background: #00337C;
     padding: 10px;
-    margin: 10px;
-    border: 1px solid hotpink;
+    border: 3px solid #1C82AD;
+    border-radius: 20px;
+    color: white;
+}
+
+.tarjeta-mokepon img  {
+    width: 80px;
 }
 
 input {
@@ -35,11 +56,14 @@ input {
 button {
 /* Background color, width, height, borde, espaciado interno y externo */
 
-    width: 160px;
+    width: 180px;
     height: 50px;
-    background-color: hotpink;
-    border: 2px solid teal;
-    margin: 10px;
+    background-color: #00337C;
+    border: 3px solid #1C82AD;
+    margin-top: 30px;
     font-size: 24px;
-    border-radius: 16px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+
 }
