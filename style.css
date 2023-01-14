@@ -18,3 +18,28 @@
     justify-content: center;
     align-items: center;
 }
+
+.tarjeta-mokepon {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid hotpink;
+}
+
+input {
+    display: none;
+}
+
+button {
+/* Background color, width, height, borde, espaciado interno y externo */
+
+    width: 160px;
+    height: 50px;
+    background-color: hotpink;
+    border: 2px solid teal;
+    margin: 10px;
+    font-size: 24px;
+    border-radius: 16px;
+}
