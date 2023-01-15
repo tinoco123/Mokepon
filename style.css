@@ -53,7 +53,7 @@ input {
     display: none;
 }
 
-button {
+#boton-mascota {
 /* Background color, width, height, borde, espaciado interno y externo */
 
     width: 180px;
@@ -66,4 +66,25 @@ button {
     color: white;
     cursor: pointer;
 
+}
+
+#seleccionar-ataque{
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.boton-ataque {
+    width: 110px;
+    background: #00337C;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #1C82AD;
+    color: white;
+    font-size: 16px;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+    margin-left: 8px;
 }

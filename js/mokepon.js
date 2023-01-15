@@ -80,7 +80,7 @@ function seleccionarMascotaJugador(){
     if (mascotaJugador.innerHTML != ""){
         seleccionarMascotaEnemigo()
         let seccionAtaques = document.getElementById("seleccionar-ataque")
-        seccionAtaques.style.display = "block"
+        seccionAtaques.style.display = "flex"
         let seccionMascota = document.getElementById("seleccionar-mascota")
         seccionMascota.style.display = "none"
     }    
