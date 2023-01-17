@@ -122,22 +122,30 @@ function combate(){
 
 
 function crearMensajeCombate(){
-    let mensajes = document.getElementById("mensajes")
+    let seccionResultado = document.getElementById("resultado")
+    let seccionAtaquesJugador = document.getElementById("ataques-jugador")
+    let seccionAtaquesEnemigo = document.getElementById("ataques-enemigo")
 
-    let parrafo =  document.createElement("p")
-    parrafo.innerHTML = `Tu mascota atacó con ${ataqueJugador}, la mascota del enemigo atacó con ${ataqueEnemigo} - ${resultado}`
+    let nuevoAtaqueJugador = document.createElement('p')
+    let nuevoAtaqueEnemigo = document.createElement('p')
 
-    mensajes.appendChild(parrafo)
+    seccionResultado.innerHTML = resultado
+    nuevoAtaqueJugador.innerHTML = ataqueJugador
+    nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo
+    
+    seccionAtaquesJugador.appendChild(nuevoAtaqueJugador)
+    seccionAtaquesEnemigo.appendChild(nuevoAtaqueEnemigo)
 }
 
 
 function crearMensajeFinal(){
-    let mensajes = document.getElementById("mensajes")
+    let mensajeFinal = document.getElementById("resultado")
 
-    let parrafo =  document.createElement("p")
-    parrafo.innerHTML = ` ${vidasJugador == 0 ? "Losiento, has perdido:(" : "Felicidades has ganado"}`
 
-    mensajes.appendChild(parrafo)
+    let parrafo = `${vidasJugador == 0 ? "Losiento, has perdido:(" : "Felicidades has ganado"}`
+    mensajeFinal.innerHTML = parrafo
+
+    
 }
 
 
