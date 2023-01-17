@@ -66,13 +66,10 @@ function seleccionarMascotaJugador(){
     let mascotaJugador = document.getElementById("mascota-jugador")
 
     if (inputHipodoge.checked){
-        alert("Seleccionaste la mascota Hipodoge")
         mascotaJugador.innerHTML = "Hipodoge"
     } else if (inputCapipepo.checked){
-        alert("Seleccionaste la mascota Capipepo")
         mascotaJugador.innerHTML = "Capipepo"
     } else if (inputRatigueya.checked){
-        alert("Seleccionaste la mascota Ratigueya")
         mascotaJugador.innerHTML = "Ratigueya"
     } else{
         alert("No seleccionaste ninguna mascota")

@@ -53,6 +53,10 @@ input {
     display: none;
 }
 
+input:checked + label {
+    background-color: #03C988;
+}
+
 #boton-mascota {
 /* Background color, width, height, borde, espaciado interno y externo */
 
