@@ -43,6 +43,7 @@ body {
     border: 3px solid #1C82AD;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .tarjeta-mokepon img  {
