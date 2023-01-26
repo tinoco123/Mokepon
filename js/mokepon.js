@@ -3,6 +3,7 @@ let ataqueEnemigo
 let resultado
 let vidasJugador = 3
 let vidasEnemigo = 3
+let mokepones = []
 
 let botonMascota = document.getElementById("boton-mascota")
 let botonFuego = document.getElementById("boton-fuego")
@@ -28,6 +29,21 @@ let seccionResultado = document.getElementById("resultado")
 let seccionAtaquesJugador = document.getElementById("ataques-jugador")
 let seccionAtaquesEnemigo = document.getElementById("ataques-enemigo")
 
+
+class Mokepon{
+    constructor (nombre, foto, vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+    }
+}
+
+let hipodoge = new Mokepon("Hipodoge", "./assets/img/hipodoge.webp", 3)
+let capipepo = new Mokepon("Capipepo", "./assets/img/capipepo.webp", 3)
+let ratigueya = new Mokepon("Ratigueya", "./assets/img/ratigueya.webp", 3)
+
+mokepones.push(hipodoge, capipepo, ratigueya)
+console.log(mokepones)
 
 
 function iniciarJuego(){
