@@ -134,11 +134,11 @@ function seleccionarAtaqueEnemigo(){
 
 function seleccionarMascotaJugador(){
     if (inputHipodoge.checked){
-        mascotaJugador.innerHTML = "Hipodoge"
+        mascotaJugador.innerHTML = inputHipodoge.id.charAt(0).toUpperCase() + inputHipodoge.id.slice(1);
     } else if (inputCapipepo.checked){
-        mascotaJugador.innerHTML = "Capipepo"
+        mascotaJugador.innerHTML = inputCapipepo.id.charAt(0).toUpperCase() + inputCapipepo.id.slice(1);
     } else if (inputRatigueya.checked){
-        mascotaJugador.innerHTML = "Ratigueya"
+        mascotaJugador.innerHTML = inputRatigueya.id.charAt(0).toUpperCase() + inputRatigueya.id.slice(1);
     } else{
         alert("No seleccionaste ninguna mascota")
     }
