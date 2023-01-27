@@ -151,12 +151,8 @@ function seleccionarMascotaJugador(){
 
 
 function seleccionarMascotaEnemigo(){
-    let enemigos = new Map();
-    enemigos.set(1, "Hipodoge")
-    enemigos.set(2, "Capipepo")
-    enemigos.set(3, "Ratigueya")
-    let enemigoAleatorio = enemigos.get(numeroAleatorio(1,3))
-    mascotaEnemigo.innerHTML = enemigoAleatorio
+    let enemigoAleatorio = numeroAleatorio(0, mokepones.length - 1)
+    mascotaEnemigo.innerHTML = mokepones[enemigoAleatorio].nombre
 }
 
 function combate(){
