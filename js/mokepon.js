@@ -5,31 +5,31 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 let mokepones = []
 let mokeponesDisponibles
+let inputHipodoge 
+let inputCapipepo
+let inputRatigueya
 
-let botonMascota = document.getElementById("boton-mascota")
-let botonFuego = document.getElementById("boton-fuego")
-let botonAgua = document.getElementById("boton-agua")
-let botonTierra = document.getElementById("boton-tierra")
-let botonReiniciar = document.getElementById("boton-reiniciar")
-let seccionAtaques = document.getElementById("seleccionar-ataque")
-let seccionReiniciar = document.getElementById("reiniciar")
+const botonMascota = document.getElementById("boton-mascota")
+const botonFuego = document.getElementById("boton-fuego")
+const botonAgua = document.getElementById("boton-agua")
+const botonTierra = document.getElementById("boton-tierra")
+const botonReiniciar = document.getElementById("boton-reiniciar")
+const seccionAtaques = document.getElementById("seleccionar-ataque")
+const seccionReiniciar = document.getElementById("reiniciar")
 
-let inputHipodoge = document.getElementById("hipodoge")
-let inputCapipepo = document.getElementById("capipepo")
-let inputRatigueya = document.getElementById("ratigueya")
-let mascotaJugador = document.getElementById("mascota-jugador")
+const mascotaJugador = document.getElementById("mascota-jugador")
 
-let seccionMascota = document.getElementById("seleccionar-mascota")
+const seccionMascota = document.getElementById("seleccionar-mascota")
 
-let mascotaEnemigo = document.getElementById("mascota-enemigo")
+const mascotaEnemigo = document.getElementById("mascota-enemigo")
 
-let spanVidasJugador = document.getElementById("vidas-jugador")
-let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+const spanVidasJugador = document.getElementById("vidas-jugador")
+const spanVidasEnemigo = document.getElementById("vidas-enemigo")
 
-let seccionResultado = document.getElementById("resultado")
-let seccionAtaquesJugador = document.getElementById("ataques-jugador")
-let seccionAtaquesEnemigo = document.getElementById("ataques-enemigo")
-let contenedorTarjetas = document.getElementById("contenedor-tarjetas")
+const seccionResultado = document.getElementById("resultado")
+const seccionAtaquesJugador = document.getElementById("ataques-jugador")
+const seccionAtaquesEnemigo = document.getElementById("ataques-enemigo")
+const contenedorTarjetas = document.getElementById("contenedor-tarjetas")
 
 
 class Mokepon{
@@ -83,6 +83,10 @@ function iniciarJuego(){
         `
         contenedorTarjetas.innerHTML += mokeponesDisponibles
     })
+
+    inputHipodoge = document.getElementById("hipodoge")
+    inputCapipepo = document.getElementById("capipepo")
+    inputRatigueya = document.getElementById("ratigueya")
     botonMascota.addEventListener("click", seleccionarMascotaJugador)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
