@@ -4,6 +4,7 @@ let resultado
 let vidasJugador = 3
 let vidasEnemigo = 3
 let mokepones = []
+let mokeponesDisponibles
 
 let botonMascota = document.getElementById("boton-mascota")
 let botonFuego = document.getElementById("boton-fuego")
@@ -28,6 +29,7 @@ let spanVidasEnemigo = document.getElementById("vidas-enemigo")
 let seccionResultado = document.getElementById("resultado")
 let seccionAtaquesJugador = document.getElementById("ataques-jugador")
 let seccionAtaquesEnemigo = document.getElementById("ataques-enemigo")
+let contenedorTarjetas = document.getElementById("contenedor-tarjetas")
 
 
 class Mokepon{
@@ -70,9 +72,17 @@ ratigueya.ataques.push(
 )
 
 
-
-
 function iniciarJuego(){
+    mokepones.forEach((mokepon) => {
+        mokeponesDisponibles = `
+        <input type="radio" name="mascota" id="${mokepon.nombre.toLowerCase()}"/>
+        <label class="tarjeta-mokepon" for="${mokepon.nombre.toLowerCase()}">
+            <p>${mokepon.nombre}</p>
+            <img src="${mokepon.foto}" alt="">
+        </label>
+        `
+        contenedorTarjetas.innerHTML += mokeponesDisponibles
+    })
     botonMascota.addEventListener("click", seleccionarMascotaJugador)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
