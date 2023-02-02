@@ -1,8 +1,8 @@
 let ataqueJugador
 let ataqueEnemigo
 let resultado
-let vidasJugador = 3
-let vidasEnemigo = 3
+let victoriasJugador = 0
+let victoriasEnemigo = 0
 let mokepones = []
 let mokeponesDisponibles
 let inputHipodoge 
@@ -28,8 +28,8 @@ const seccionMascota = document.getElementById("seleccionar-mascota")
 
 const mascotaEnemigo = document.getElementById("mascota-enemigo")
 
-const spanVidasJugador = document.getElementById("vidas-jugador")
-const spanVidasEnemigo = document.getElementById("vidas-enemigo")
+const spanVictoriasJugador = document.getElementById("victorias-jugador")
+const spanVictoriasEnemigo = document.getElementById("victorias-enemigo")
 
 const seccionResultado = document.getElementById("resultado")
 const seccionAtaquesJugador = document.getElementById("ataques-jugador")
@@ -102,24 +102,6 @@ function iniciarJuego(){
 }
 
 
-function ataqueFuego(){
-    ataqueJugador = "FUEGO"
-    seleccionarAtaqueEnemigo()
-}
-
-
-function ataqueAgua(){
-    ataqueJugador = "AGUA"
-    seleccionarAtaqueEnemigo()
-}
-
-
-function ataqueTierra(){
-    ataqueJugador = "TIERRA"
-    seleccionarAtaqueEnemigo()
-}
-
-
 function seleccionarMascotaJugador(){
     if (inputHipodoge.checked){
         mascotaJugadorHTML.innerHTML = inputHipodoge.id.charAt(0).toUpperCase() + inputHipodoge.id.slice(1)
@@ -142,39 +124,6 @@ function seleccionarMascotaJugador(){
 }
 
 
-function seleccionarMascotaEnemigo(){
-    let enemigoAleatorio = numeroAleatorio(0, mokepones.length - 1)
-    mascotaEnemigo.innerHTML = mokepones[enemigoAleatorio].nombre
-    ataquesMokeponEnemigo = mokepones[enemigoAleatorio].ataques
-    secuenciaAtaque()
-}
-
-
-function seleccionarAtaqueEnemigo(){
-    let ataques
-    ataques = new Map()
-    ataques.set(0, "FUEGO")
-    ataques.set(1, "FUEGO")
-    ataques.set(2, "AGUA")
-    ataques.set(3, "AGUA")
-    ataques.set(4, "TIERRA")
-    ataques.set(5, "TIERRA")
-    
-    let ataqueAleatorio = numeroAleatorio(0, ataquesMokeponEnemigo.length - 1)
-        
-    secuenciaAtaqueEnemigo.push(ataques.get(ataqueAleatorio)) 
-    ataqueEnemigo = ataques.get(ataqueAleatorio)
-    console.log(secuenciaAtaqueEnemigo)
-    combate()
-    crearMensajeCombate()
-    if (vidasJugador == 0 || vidasEnemigo == 0) {
-        deshabilitarAtaques()
-        crearMensajeFinal()
-        seccionReiniciar.style.display = "block"
-    }
-}
-
-
 function cargarAtaques(){
     let ataquesDisponibles
     for (mascota in mokepones){
@@ -190,6 +139,14 @@ function cargarAtaques(){
     }
 
     botonesAtaque = document.querySelectorAll(".boton-ataque-listener")
+}
+
+
+function seleccionarMascotaEnemigo(){
+    let enemigoAleatorio = numeroAleatorio(0, mokepones.length - 1)
+    mascotaEnemigo.innerHTML = mokepones[enemigoAleatorio].nombre
+    ataquesMokeponEnemigo = mokepones[enemigoAleatorio].ataques
+    secuenciaAtaque()
 }
 
 
@@ -218,25 +175,65 @@ function secuenciaAtaque(){
 }
 
 
-function combate(){
-    if (ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO"){
-        resultado = "GANASTE"
-        vidasEnemigo--
-    } else if (ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA"){
-        resultado = "GANASTE"
-        vidasEnemigo--
-    } else if (ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA"){
-        resultado = "GANASTE"
-        vidasEnemigo--
-    } else if (ataqueJugador == ataqueEnemigo){
-        resultado = "EMPATE"
-    } else {
-        resultado = "PERDISTE"
-        vidasJugador--
-    }
-    spanVidasJugador.innerHTML = vidasJugador
-    spanVidasEnemigo.innerHTML = vidasEnemigo
+function seleccionarAtaqueEnemigo(){
+    let ataques
+    ataques = new Map()
+    ataques.set(0, "FUEGO")
+    ataques.set(1, "FUEGO")
+    ataques.set(2, "AGUA")
+    ataques.set(3, "AGUA")
+    ataques.set(4, "TIERRA")
+    ataques.set(5, "TIERRA")
     
+    let ataqueAleatorio = numeroAleatorio(0, ataquesMokeponEnemigo.length - 1)
+        
+    secuenciaAtaqueEnemigo.push(ataques.get(ataqueAleatorio)) 
+    ataqueEnemigo = ataques.get(ataqueAleatorio)
+    console.log(secuenciaAtaqueEnemigo)
+    iniciarPelea()
+}
+
+
+function iniciarPelea(){
+    if (secuenciaAtaqueJugador.length >= 5){
+        combate()
+    }
+}
+
+
+function combate(){
+
+    for (let i = 0; i < secuenciaAtaqueJugador.length; i++) {
+        if (secuenciaAtaqueJugador[i] === secuenciaAtaqueEnemigo[i]){
+            asignarAtaques(i, i)
+        } else if (secuenciaAtaqueJugador[i] === "AGUA" & secuenciaAtaqueEnemigo[i] === "FUEGO"){
+            victoriasJugador++
+            asignarAtaques(i, i)
+        } else if (secuenciaAtaqueJugador[i] === "TIERRA" & secuenciaAtaqueEnemigo[i] === "AGUA"){
+            victoriasJugador++
+            asignarAtaques(i, i)
+        } else if (secuenciaAtaqueJugador[i] === "FUEGO" & secuenciaAtaqueEnemigo[i] === "TIERRA"){
+            victoriasJugador++
+            asignarAtaques(i, i)
+        } else {
+            victoriasEnemigo ++
+            asignarAtaques(i, i)
+        }
+        
+    }
+
+    spanVictoriasJugador.innerHTML = victoriasJugador
+    spanVictoriasEnemigo.innerHTML = victoriasEnemigo
+    crearMensajeFinal()
+    deshabilitarAtaques()
+    seccionReiniciar.style.display = "block"    
+}
+
+
+function asignarAtaques(jugador, enemigo){
+    ataqueJugador = secuenciaAtaqueJugador[jugador]
+    ataqueEnemigo = secuenciaAtaqueEnemigo[enemigo]
+    crearMensajeCombate()
 }
 
 
@@ -244,7 +241,6 @@ function crearMensajeCombate(){
     let nuevoAtaqueJugador = document.createElement('p')
     let nuevoAtaqueEnemigo = document.createElement('p')
 
-    seccionResultado.innerHTML = resultado
     nuevoAtaqueJugador.innerHTML = ataqueJugador
     nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo
     
@@ -254,7 +250,14 @@ function crearMensajeCombate(){
 
 
 function crearMensajeFinal(){
-    let parrafo = `${vidasJugador == 0 ? "Losiento, has perdido:(" : "Felicidades has ganado"}`
+    let parrafo = ""
+    if (victoriasJugador > victoriasEnemigo){
+        parrafo = "FELICIDADES! Eres el ganador"
+    } else if (victoriasJugador < victoriasEnemigo) {
+        parrafo = "LOSIENTO:( Has perdido"
+    } else {
+        parrafo = "Existe un EMPATE"
+    }
     seccionResultado.innerHTML = parrafo
 }
 
@@ -274,5 +277,6 @@ function reiniciarJuego(){
 function numeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
 
 window.addEventListener("load", iniciarJuego)
