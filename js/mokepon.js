@@ -158,16 +158,19 @@ function secuenciaAtaque(){
                 ataqueJugador = "FUEGO"
                 console.log(secuenciaAtaqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else if (e.target.textContent === "Agua 💧"){
                 secuenciaAtaqueJugador.push("AGUA")
                 ataqueJugador = "AGUA"
                 console.log(secuenciaAtaqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else {
                 secuenciaAtaqueJugador.push("TIERRA")
                 ataqueJugador = "TIERRA"
                 console.log(secuenciaAtaqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             }
             seleccionarAtaqueEnemigo()
         })
