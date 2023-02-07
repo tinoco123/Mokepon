@@ -131,7 +131,7 @@ function seleccionarMascotaJugador(){
     }
     if (mascotaJugadorHTML.innerHTML != ""){
         seccionVerMapa.style.display = "flex"
-        intervalo = setInterval(pintarPersonaje, 50)
+        iniciarMapa()
         // seleccionarMascotaEnemigo()
         // cargarAtaques()
         // seccionAtaques.style.display = "flex"
@@ -334,4 +334,31 @@ function detenerMovimiento() {
     capipepo.velocidadX = 0
     capipepo.velocidadY = 0
 }
+
+
+function sePresionaTecla(evento){
+    switch (evento.key) {
+        case "ArrowUp":
+            moverArriba()            
+            break
+        case "ArrowDown":
+            moverAbajo()
+            break
+        case "ArrowLeft":
+            moverIzquierda()
+            break
+        case "ArrowRight":
+            moverDerecha()
+            break
+        default:
+            break
+    }
+}
+
+function iniciarMapa(){
+    intervalo = setInterval(pintarPersonaje, 60)
+    window.addEventListener("keydown", sePresionaTecla)
+    window.addEventListener("keyup", detenerMovimiento)
+}
+
 window.addEventListener("load", iniciarJuego)
