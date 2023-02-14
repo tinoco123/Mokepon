@@ -1,0 +1,25 @@
+{
+  "name": "mokepon",
+  "version": "1.0.0",
+  "description": "Juego web con HTML, CSS, JavaScript y Node.js. Elige a tu mascota favorita y enfrenta a otros Mokepones en peleas épicas de agua, fuego y tierra.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinoco123/Mokepon.git"
+  },
+  "keywords": [
+    "mokepon",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Jonathan Hernandez Tinoco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinoco123/Mokepon/issues"
+  },
+  "homepage": "https://github.com/tinoco123/Mokepon#readme"
+}
